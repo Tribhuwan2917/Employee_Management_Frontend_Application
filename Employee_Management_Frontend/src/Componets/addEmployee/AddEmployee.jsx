@@ -3,20 +3,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AddEmployeeDetailsSchema } from './AddEmployeeDetailsSchema';
 import { Container, Form, Row, Col, Card, Button, Alert } from 'react-bootstrap'
-import { EmployeeCountryName } from '../../../public/UtilData';
+import { EmployeeCountryName, Server_Error_Message } from '../../../public/UtilData';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { employeeManagement_base_URL, employeeManagement_employeeDetails_postEmployeeDetails_URL } from '../../../public/ApiUrl';
 
 function AddEmployee() {
-    /**  private Integer employeeId;
-    private String employeeFirstName;
-    private String employeeLastName;
-    private String employeeEmail;
-    private String employeeCountry;
-    private String employeeAddressZipCode;
-    private String employeeAddressCity; */
     const navigate = useNavigate();
     const employeeIntialValue = {
         employeeId: '',
@@ -32,22 +25,19 @@ function AddEmployee() {
     const { handleChange, handleBlur, handleSubmit, handleReset, values, errors, touched } = useFormik({
         initialValues: employeeIntialValue,
         onSubmit: (values, action) => {
-            axios.post(employeeManagement_base_URL+employeeManagement_employeeDetails_postEmployeeDetails_URL,values).then((response)=>{
-                toast.success("Employee Added Successfully with Employee Id:"+values.employeeId);
-                // console.log(response.data)
-                // console.log("employee details has been submitted successfully")
+            console.log("This is my Data")
+            console.log(values)
+            axios.post(employeeManagement_base_URL + employeeManagement_employeeDetails_postEmployeeDetails_URL, values).then((response) => {
+                toast.success("Employee Added Successfully with Employee Id:" + values.employeeId);
                 action.resetForm()
-            }).catch((error)=>{
-                // console.log("Something went wrong")
-                // console.log(error.response.data.exceptionMessage)
-                if(error.response.data.exceptionMessage==="Employee With Employee Id " +values.employeeId+ " Already exists")
-                {
-                    toast.warning("Employee With Employee Id: "+values.employeeId+" Already exists")
-                }else{
-                    toast.warning("Something Went Wrong")
+            }).catch((error) => {
+                console.log("It has been called")
+                if (error.response.data.exceptionMessage === "Employee With Employee Id " + values.employeeId + " Already exists") {
+                    toast.warning("Employee With Employee Id: " + values.employeeId + " Already exists")
+                } else {
+                    toast.warning(Server_Error_Message)
                 }
             })
-
         },
         validationSchema: AddEmployeeDetailsSchema
     })
@@ -56,7 +46,7 @@ function AddEmployee() {
             <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
-                        <Card style={{ width: '40rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft:'-100px' }}>
+                        <Card style={{ width: '40rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-100px' }}>
                             <Card.Body>
                                 <Card.Title>Add Employee</Card.Title>
                                 <Card.Img src=''></Card.Img>
@@ -85,14 +75,12 @@ function AddEmployee() {
                                         </Row>
                                         <Row>
                                             <Col>
-
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee First Name</label><br></br>
                                                     <input type='text' onBlur={handleBlur} value={values.employeeFirstName} onChange={handleChange} name='employeeFirstName'></input>
                                                     <br></br>
                                                     {errors.employeeFirstName && touched.employeeFirstName ? <Alert variant='danger'>
                                                         {errors.employeeFirstName}
-
                                                     </Alert> : null}
                                                 </div>
                                             </Col>
@@ -105,7 +93,6 @@ function AddEmployee() {
                                                         {errors.employeeLastName}
                                                     </Alert> : null}
                                                 </div>
-
                                             </Col>
                                         </Row>
                                         <Row>
@@ -122,9 +109,9 @@ function AddEmployee() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee Address ZipCode</label><br></br>
-                                                    <input  type='text' value={values.employeeAddressZipCode} onChange={handleChange} onBlur={handleBlur} name='employeeAddressZipCode'></input>
+                                                    <input type='text' value={values.employeeAddressZipCode} onChange={handleChange} onBlur={handleBlur} name='employeeAddressZipCode'></input>
                                                     <br></br>
-                                                    {errors.employeeAddressZipCode && touched.employeeAddressZipCode ? <Alert style={{height:'30px',width:'240px', marginLeft:'50px',paddingBottom:'30px',marginRight:'20px'}} variant='danger'>
+                                                    {errors.employeeAddressZipCode && touched.employeeAddressZipCode ? <Alert style={{ height: '30px', width: '240px', marginLeft: '50px', paddingBottom: '30px', marginRight: '20px' }} variant='danger'>
                                                         {errors.employeeAddressZipCode}
                                                     </Alert> : null}
                                                 </div>
@@ -144,11 +131,11 @@ function AddEmployee() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Select Country</label>
-                                                    <Form.Select name="employeeCountry"  value={values.employeeCountry} onChange={handleChange} style={{ width: '200px', marginLeft: '45px' }} >
-                                                       {EmployeeCountryName.map((CountryName, index) => (<option key={index} onBlur={handleBlur} value={CountryName}>{CountryName}</option>))}
-                                                       {errors.employeeCountry? <Alert variant='danger'>
-                                                        {errors.employeeCountry}
-                                                    </Alert> : null}
+                                                    <Form.Select name="employeeCountry" value={values.employeeCountry} onChange={handleChange} style={{ width: '200px', marginLeft: '45px' }} >
+                                                        {EmployeeCountryName.map((CountryName, index) => (<option key={index} onBlur={handleBlur} value={CountryName}>{CountryName}</option>))}
+                                                        {errors.employeeCountry ? <Alert variant='danger'>
+                                                            {errors.employeeCountry}
+                                                        </Alert> : null}
                                                     </Form.Select>
                                                 </div>
                                             </Col>
@@ -157,16 +144,15 @@ function AddEmployee() {
                                             <Col>
                                                 <Row>
                                                     <Col>
-                                                        <div style={{marginLeft:'-75px'}}> Employee Gender</div>
+                                                        <div style={{ marginLeft: '-75px' }}> Employee Gender</div>
                                                     </Col>
                                                     <Col>
                                                         <div></div>
                                                     </Col>
-                                                    
                                                 </Row>
                                                 <Row>
                                                     <Col>
-                                                        <div style={{marginLeft:"50px"}}>
+                                                        <div style={{ marginLeft: "50px" }}>
                                                             Male <Form.Check name='employeeGender' onBlur={handleBlur} onChange={handleChange} type="radio" value="Male" />
                                                         </div>
                                                     </Col>
@@ -177,7 +163,7 @@ function AddEmployee() {
                                                         </div>
                                                     </Col>
                                                     <Col>
-                                                        <div style={{marginRight:'60px'}}>
+                                                        <div style={{ marginRight: '60px' }}>
                                                             Other
                                                             <Form.Check onBlur={handleBlur} name='employeeGender' onChange={handleChange} type="radio" value="other" />
                                                         </div>
@@ -186,24 +172,20 @@ function AddEmployee() {
                                                         <div></div>
                                                     </Col>
                                                     <Col>
-                                                    <div style={{marginRight:'40px'}}>
-                                                            <Button style={{ margin: '2px' }} onClick={()=>{navigate(-1)}} disabled={false}>Cancel</Button>
+                                                        <div style={{ marginRight: '40px' }}>
+                                                            <Button style={{ backgroundColor: 'red', width: '90px' }} onClick={() => { navigate(-1) }} disabled={false}>Cancel</Button>
                                                         </div>
                                                     </Col>
                                                     <Col>
-                                                        <div style={{marginRight:'40px'}}>
-                                                            <Button style={{ margin: '2px' }} type='submit' disabled={false}>Add</Button>
+                                                        <div style={{ marginRight: '40px' }}>
+                                                            <Button style={{ width: '70px', margin: '2px' }} type='submit' >Add</Button>
                                                         </div>
                                                     </Col>
-
                                                 </Row>
-                                                
                                                 {errors.employeeGender && touched.employeeGender ? <span><Alert variant='danger'>
                                                     {errors.employeeGender}
-                                                </Alert></span>  : null}
-
+                                                </Alert></span> : null}
                                             </Col>
-
                                         </Row>
                                     </form>
                                 </Card.Text>

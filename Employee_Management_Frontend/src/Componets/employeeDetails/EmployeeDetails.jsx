@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Card, Button, Container, Row, Col, Form, Table, Alert } from 'react-bootstrap'
-import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 import { useFormik } from 'formik';
 import { EmployeeDetailsSchema } from './EmployeeDetailsSchema'
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,13 +11,8 @@ import { employeeManagement_base_URL, employeeManagement_employeeDetails_deleteE
 function EmployeeDetails() {
     const navigate = useNavigate();
     if (!sessionStorage.getItem("isLoggedIn") || sessionStorage.getItem("isLoggedIn") === 'false') {
-        // console.log("user not logged in")
         useEffect(() => { navigate("/login") }, [])
     }
-    //   console.log("is has been called"+sessionStorage.getItem("isLoggedIn"))
-    // const [searchInput, setSearchInput] = useState({
-    //     employeeId: ''
-    // })
     const inputSearchIntialValue = {
         employeeId: ''
     }
@@ -28,8 +22,6 @@ function EmployeeDetails() {
             axios.get(employeeManagement_base_URL + employeeManagement_employeeDetails_getEmployeeDetails_URL + values.employeeId).then((response) => {
                 setEmployeeData(response.data)
                 action.resetForm()
-                // console.log("data in employee details has been submitted successfully")
-                // console.log(employeeData)
             }).catch((error) => {
                 console.log("Is has got called")
                 toast.warning("No Employee Exists With Employee Id: " + values.employeeId)
@@ -62,7 +54,6 @@ function EmployeeDetails() {
                     toast.warning("Oops! Something Went wrong")
                 })
         }
-
     }
     const handleCancel = (event) => {
         event.preventDefault();
@@ -93,7 +84,7 @@ function EmployeeDetails() {
                                     <Button onClick={() => { navigate("/employeeDetails/addEmployee") }}>Add Employee</Button>
                                 </Col>
                                 <Col>
-                                    <Button onClick={() => { navigate('/employeeDetails/getAllEmployee', { state: { employeeData } }) }}>Get All Employee</Button>
+                                    <Button onClick={() => { navigate('/employeeDetails/getAllEmployee' ) }}>Get All Employee</Button>
                                 </Col>
                             </Row>
                         </Container>{
@@ -128,7 +119,7 @@ function EmployeeDetails() {
                                                     <td>{employeeData.employeeAddressCity}</td>
                                                     <td>{employeeData.employeeSalaryPerMonth}</td>
                                                     <td>{employeeData.employeeCurrentProjectId === null ? "NA" : employeeData.employeeCurrentProjectId}</td>
-                                                    <td><Button style={{ marginLeft: '5px', width: '100px', height: '40px', fontSize: '15px' }} onClick={handleDelete}>Delete</Button></td>
+                                                    <td><Button style={{ backgroundColor:'red',marginLeft: '5px', width: '100px', height: '40px', fontSize: '15px' }} onClick={handleDelete}>Delete</Button></td>
                                                     <td><Button style={{ marginLeft: '5px', width: '100px', height: '40px', fontSize: '15px' }} onClick={() => { navigate('/employeeDetails/updateEmployeeDetails', { state: { employeeData } }) }}>Update</Button></td>
                                                 </tr>
                                             </tbody>
@@ -141,7 +132,7 @@ function EmployeeDetails() {
                                         <Col><div></div></Col>
                                         <Col><div></div></Col>
                                         <Col><div></div></Col>
-                                        <Col><div><Button style={{width:'120px',height:'40px',marginLeft:'15px'}}Button onClick={handleCancel}>Cancel</Button></div></Col>
+                                        <Col><div><Button style={{backgroundColor:'red', width:'120px',height:'40px',marginLeft:'15px'}}Button onClick={handleCancel}>Cancel</Button></div></Col>
                                     </Row>
                                 </Container>
                         }

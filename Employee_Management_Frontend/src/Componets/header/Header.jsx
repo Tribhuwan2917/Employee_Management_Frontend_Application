@@ -37,8 +37,8 @@ function Header() {
             {(sessionStorage.getItem("isLoggedIn")===null)?<Nav.Link href="/login">Login</Nav.Link>:<Nav.Link href="/logout">Logout</Nav.Link>}
           {(sessionStorage.getItem("isLoggedIn")===null)?<Nav.Link href="/signup">SignUp</Nav.Link>:null}
             <NavDropdown title="Employee Project" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/currentProject">Current Project</NavDropdown.Item>
-              <NavDropdown.Item href="/priviousProject">
+              <NavDropdown.Item href="/currentProjectDetails">Current Project</NavDropdown.Item>
+              <NavDropdown.Item href="/priviousProjectDetails">
                 Privious Project
               </NavDropdown.Item>
               <NavDropdown.Divider />

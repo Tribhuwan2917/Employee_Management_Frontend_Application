@@ -5,6 +5,7 @@ import { employeeManagement_base_URL, employeeManagement_employeeDetails_deleteE
 import { Alert, Button, Col, Row, Table } from 'react-bootstrap'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Server_Error_Message } from '../../../public/UtilData';
 
 function GetAllEmployee() {
     const navigate = useNavigate();
@@ -17,10 +18,7 @@ function GetAllEmployee() {
     useEffect(() => {
         axios.get(employeeManagement_base_URL + employeeManagement_employeeDetails_getAllEmployeeDetails_URL)
             .then((response) => {
-                for(let key in response.data)
-                {
-                    setAllEmployeeData([...response.data,response.data[key]])
-                }
+                setAllEmployeeData(response.data)
             })
             .catch((error) => {
                 if(error.response.data.exceptionMessage==="No Employee Exists")
@@ -28,32 +26,21 @@ function GetAllEmployee() {
                     toast.warning("Oops! No Employee Exists")
                 }
                 else{
-                    toast.warning("Oops! Something Went Wrong")
+                    toast.warning( Server_Error_Message)
                 }
             })
     },[])
-    const[isUpdated,setIsUpdated]=useState("")
-    const handleUpdate=(event)=>{
-        setIsUpdated("true");
-    }
-    const handleDelete=(employeeId,event)=>{
+    const handleDelete=(employeeId)=>{
         console.log(allEmployeeData)
      
-       if(confirm("Do! You want Sure delete Data")){
+       if(confirm("Are! You To Sure delete This Employee Details")){
         axios.delete(employeeManagement_base_URL+employeeManagement_employeeDetails_deleteEmployeeDetails_URL+employeeId)
         .then((response)=>{
-           
-            for(let key in allEmployeeData)
-            {
-                if(key!==employeeId){
-                setAllEmployeeData([...allEmployeeData,allEmployeeData[key]])
-                }
-            }
-           location.reload()
+           setAllEmployeeData(allEmployeeData.filter((employeeDetails)=>(employeeDetails.employeeId!==employeeId)))
            toast.success("Employee With Employee Id: "+employeeId+" has been deleted successfully!")
         })
         .catch((error)=>{
-            toast.warning("Oops! Something Went wrong ")
+            toast.warning(Server_Error_Message)
         })
       }
     
@@ -74,10 +61,10 @@ function GetAllEmployee() {
                             <th>Country</th>
                             <th>Addess ZipCode</th>
                             <th>City</th>
-                            <th>Salary per Month</th>
+                            <th>Salary/Month</th>
                             <th>Current Project Id</th>
-                            <th>Delete Employee</th>
-                            <th>Update Employee</th>
+                            <th>Delete</th>
+                            <th>Update</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,8 +80,8 @@ function GetAllEmployee() {
                         <td>{employeeData.employeeAddressCity}</td>
                         <td>{employeeData.employeeSalaryPerMonth}</td>
                         <td>{employeeData.currentProjectId?employeeData.currentProjectId:"NA"}</td>
-                        <td><Button style={{marginLeft:'5px',width:'120px',height:'40px',fontSize:'15px'}} onClick={(event)=>handleDelete(employeeData.employeeId)} >Delete</Button></td>
-                        <td><Button style={{marginLeft:'5px',width:'120px',height:'40px',fontSize:'15px'}} onClick={(event)=>navigate('/employeeDetails/getAllEmployee/updateEmployeeDetails',{state: {employeeData} })} >Update</Button></td>
+                        <td><Button style={{backgroundColor:'red',marginLeft:'5px',width:'120px',height:'40px',fontSize:'15px'}} onClick={(event)=>handleDelete(employeeData.employeeId)} >Delete</Button></td>
+                        <td><Button style={{marginLeft:'5px',width:'120px',height:'40px',fontSize:'15px'}} onClick={()=>navigate("/employeeDetails/getAllEmployee/updateEmployeeDetails",{state:{employeeData}})} >Update</Button></td>
                         </tr>
                          ))}
                     <tr>
@@ -113,7 +100,7 @@ function GetAllEmployee() {
                 <Col><div></div></Col>
                 <Col><div></div></Col>
                 <Col><div></div></Col>
-                <Col><div><Button style={{marginLeft:'5px',width:'120px',height:'40px',fontSize:'15px'}} onClick={()=>{navigate(-1)}}>Cancel</Button></div></Col>
+                <Col><div><Button style={{backgroundColor:'red',marginLeft:'-35px',width:'120px',height:'40px',fontSize:'15px'}} onClick={()=>{navigate(-1)}}>Cancel</Button></div></Col>
             </Row>
 <ToastContainer></ToastContainer>
         </div>

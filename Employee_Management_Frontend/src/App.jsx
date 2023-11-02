@@ -14,6 +14,12 @@ import EmployeeDetails from  './Componets/employeeDetails/EmployeeDetails'
 import AddEmployee from './Componets/addEmployee/AddEmployee'
 import GetAllEmployee from './Componets/getAllEmployee/GetAllEmployee'
 import UpdateEmployeeDetails from './Componets/updateEmployee/UpdateEmployeeDetails'
+import UpdateCurrentProject from './Componets/updateCurrentProject/UpdateCurrentProject'
+import AddCurrentProject from './Componets/addCurrentProject/AddCurrentProject'
+import GetAllCurrentProject from './Componets/getAllCurrentProject/GetAllCurrentProject'
+import AddPriviousProject from './Componets/addPriviousProject/AddPriviousProject'
+import UpdatePriviousProject from './Componets/updatePriviousProject/UpdatePriviousProject'
+import GetAllPrivousProject from './Componets/getAllPriviousProject/GetAllPrivousProject'
 
 function App() {
 
@@ -33,16 +39,27 @@ function App() {
         <Route path='/Signup' element={<SignUp></SignUp>}>
         </Route>
         <Route path='/logout' element={<Logout></Logout>}></Route>
-        <Route path='/currentProject' element={<CurrentProject></CurrentProject>}>
-        </Route>
-        <Route path='/priviousProject' element={<PriviousProject></PriviousProject>}></Route>
-        <Route path='/employeeDetails' element={<EmployeeDetails>
-        </EmployeeDetails>}>
-        </Route>
+
+
+        
+        <Route exact path='/employeeDetails' element={<EmployeeDetails></EmployeeDetails>}></Route>
         <Route path='/employeeDetails/addEmployee' element={<AddEmployee></AddEmployee>}></Route>
         <Route path='/employeeDetails/getAllEmployee' element={<GetAllEmployee></GetAllEmployee>}></Route>
         <Route path='/employeeDetails/getAllEmployee/updateEmployeeDetails' element={<UpdateEmployeeDetails></UpdateEmployeeDetails>}></Route>
         <Route path='/employeeDetails/updateEmployeeDetails' element={<UpdateEmployeeDetails></UpdateEmployeeDetails>}></Route>
+
+
+
+        <Route path='/currentProjectDetails' element={<CurrentProject></CurrentProject>}></Route>
+        <Route path='/currentProjectDetails/getAllCurrentProjectDetails' element={<GetAllCurrentProject></GetAllCurrentProject>}></Route>
+        <Route path='/currentProjectDetails/getAllCurrentProjectDetails/updateCurrentProjectDetails' element={<UpdateCurrentProject></UpdateCurrentProject>}></Route>
+        <Route path='/currentProjectDetails/addCurrentProjectDetails' element={<AddCurrentProject></AddCurrentProject>}></Route>
+        <Route path='/currentProjectDetails/upadateCurrentProjectDetails' element={<UpdateCurrentProject></UpdateCurrentProject>}></Route>
+
+        <Route path='/priviousProjectDetails' element={<PriviousProject></PriviousProject>}></Route>
+        <Route path='/priviousProjectDetails/addPriviousProjectDetails' element={<AddPriviousProject></AddPriviousProject>}></Route>
+        <Route path='/priviousProjectDetails/updatePriviousProjectDetails' element={<UpdatePriviousProject></UpdatePriviousProject>}></Route>
+        <Route path='/priviousProjectDetails/getAllPriviousProjectDetails' element={<GetAllPrivousProject></GetAllPrivousProject>}></Route>
       </Routes>
     </BrowserRouter>
         </Row>

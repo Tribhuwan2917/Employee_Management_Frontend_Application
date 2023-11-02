@@ -25,8 +25,11 @@ function SignUp() {
         onSubmit:(values,action)=>{
            axios.post(employeeManagement_base_URL+employeeManagement_registration_postRegistration_URL,values)
            .then((response)=>{
-            console.log(response)
-            toast.success("Employee Successfully Register");''
+            // console.log(response)
+            toast.success("Employee Successfully Register");
+            setTimeout(()=>{
+              navigate('/login')
+            },3000)
            }).catch((error)=>{
             //Registration with Email Id: testemail8499@gmail.comalready exists
             if(error.response.data.exceptionMessage==="Registration with Email Id: "+values.registrationEmail+"already exists"){
@@ -52,23 +55,23 @@ function SignUp() {
         <Card.Img src=''></Card.Img>
         <Card.Text>
         <form onSubmit={handleSubmit}>
-        <div style={{padding:'2px'}}>
-        <label>Employee Email Id:</label><br></br>
-        <input type='text' value={values.registrationEmail} onBlur={handleBlur} onChange={handleChange} name='registrationEmail'></input><br></br>
-        {errors.registrationEmail&&touched.registrationEmail?<Alert variant='danger'>
+        <div>
+        <label>Employee Email Id</label><br></br>
+        <input type='text' style={{width:'300px'}} value={values.registrationEmail} onBlur={handleBlur} onChange={handleChange} name='registrationEmail'></input><br></br>
+        {errors.registrationEmail&&touched.registrationEmail?<Alert style={{ marginTop:'2px', marginLeft:'57px',width:'300px',height:'35px',paddingBottom:'35px'}} variant='danger'>
         {errors.registrationEmail}
         </Alert>:null}
         </div>
-        <div style={{padding:'2px'}}>
-        <label> Employee Password:</label><br></br>
-        <input onBlur={handleBlur} type='text' value={values.registraionPassword} onChange={handleChange} name='registraionPassword'></input>
+        <div>
+        <label> Employee Password</label><br></br>
+        <input onBlur={handleBlur} style={{width:'300px'}} type='text' value={values.registraionPassword} onChange={handleChange} name='registraionPassword'></input>
         <br></br>
-        {errors.registraionPassword&&touched.registraionPassword?<Alert variant='danger'>
+        {errors.registraionPassword&&touched.registraionPassword?<Alert style={{marginTop:'2px', marginLeft:'57px',width:'300px',height:'35px',paddingBottom:'35px'}} variant='danger'>
         {errors.registraionPassword}
         </Alert>:null}
         </div>
         <div>
-        <Button style={{margin:'2px'}} type='submit' disabled={false}>Submit</Button>
+        <Button style={{ marginTop:'5px',width:'100px', marginLeft:'15px'}} type='submit' disabled={false}>SignUp</Button>
         </div>
         </form> 
         </Card.Text>

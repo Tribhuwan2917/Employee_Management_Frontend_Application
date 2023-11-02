@@ -7,7 +7,7 @@ import { EmployeeCountryName } from '../../../public/UtilData';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import { employeeManagement_base_URL, employeeManagement_employeeDetails_updateEmployeeDetails_URl } from '../../../public/ApiUrl';
+import { employeeManagement_base_URL, employeeManagement_employeeDetails_updateEmployeeDetails_URL } from '../../../public/ApiUrl';
 function UpdateEmployeeDetails() {
     const navigate=useNavigate();
     if(!sessionStorage.getItem("isLoggedIn")||sessionStorage.getItem("isLoggedIn")==='false')
@@ -15,15 +15,12 @@ function UpdateEmployeeDetails() {
         useEffect(()=>{navigate('/login')},[])
     }
     const locationData = useLocation();
-    // console.log("it has been called")
-    // console.log("this is employee data")
-    // console.log(locationData)
     const { handleChange, handleBlur, handleSubmit, handleReset, values, errors, touched } = useFormik({
         initialValues: locationData.state.employeeData,
         onSubmit: (values, action) => {
             
             console.log(values)
-            axios.put(employeeManagement_base_URL+employeeManagement_employeeDetails_updateEmployeeDetails_URl,values)
+            axios.put(employeeManagement_base_URL+employeeManagement_employeeDetails_updateEmployeeDetails_URL,values)
             .then((response)=>{
                 // console.log("All data has been updated successfully")
                 if(response.data==="employee successfully updated with employeeId:"+values.employeeId)
@@ -64,7 +61,7 @@ function UpdateEmployeeDetails() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee Id:</label><br></br>
-                                                    <input onBlur={handleBlur} type='number' value={values.employeeId} onChange={handleChange} name='employeeId'></input>
+                                                    <input onBlur={handleBlur} type='number' value={locationData.state.employeeData.employeeId} onChange={handleChange} name='employeeId'></input>
                                                     {errors.employeeId && touched.employeeId ? <Alert variant='danger'>
                                                         {errors.employeeId}
                                                     </Alert> : null}
@@ -186,7 +183,7 @@ function UpdateEmployeeDetails() {
                                                     
                                                     <Col>
                                                     <div style={{ marginRight: '20px' }}>
-                                                            <Button style={{ margin: '2px' }} onClick={()=>{navigate(-1)}} disabled={false}>Cancel</Button>
+                                                            <Button style={{ backgroundColor:'red', margin: '2px' }} onClick={()=>{navigate(-1)}} disabled={false}>Cancel</Button>
                                                         </div>
                                                     </Col>
                                                     <Col>
