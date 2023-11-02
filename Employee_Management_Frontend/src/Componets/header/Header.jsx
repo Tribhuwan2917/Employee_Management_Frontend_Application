@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from 'react-router-dom';
 import Login from '../login/Login';
 import { useState } from 'react';
+import { Image_URL } from '../../../public/UtilData';
 
 
 function Header() {
@@ -19,7 +20,7 @@ function Header() {
     <Navbar expand="lg"  className="bg-body">
       <Container style={{ backgroundColor:'#333333',padding:'0px', margin:'0px'}} fluid>
         <Navbar.Brand href="#" style={{backgroundColor:'#333333'}}>
-        <img src='./imageges/myphoto.jpg' style={{borderRadius:'50%'}} width={50} height={50}></img>
+        <img src={Image_URL} style={{borderRadius:'50%'}} width={50} height={50}></img>
        <span style={{padding:'2px'}}>
         Employee Management
         </span>

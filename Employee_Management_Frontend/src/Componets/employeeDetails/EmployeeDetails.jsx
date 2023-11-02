@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { employeeManagement_base_URL, employeeManagement_employeeDetails_deleteEmployeeDetails_URL, employeeManagement_employeeDetails_getEmployeeDetails_URL } from '../../../public/ApiUrl';
+import { Employee_Image_URL } from '../../../public/UtilData';
 
 function EmployeeDetails() {
     const navigate = useNavigate();
@@ -61,22 +62,24 @@ function EmployeeDetails() {
     }
     return (
         <div>
-            <Card style={{ textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '50px', backgroundColor: '#1d2e3f', color: 'white' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+            <Card style={{ textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
+                {/* <Card.Img  src={Employee_Image_URL}  variant="top" height='200px' /> */}
                 <Card.Body>
                     <Card.Title>Employee Details</Card.Title>
-                    {/* <Card.Img  variant="top" width={'50rem'} height={400} ></Card.Img> */}
+                   
                     <Card.Text>
                         <Container fluid>
                             <Row>
                                 <Col lg={6}>
                                     <Form onSubmit={handleSubmit}>
                                         <span >
-                                            <input inputmode="numeric" value={values.employeeId} onBlur={handleBlur} name='employeeId' onChange={handleChange} type='number' placeholder='Search Employee By Employee Id' style={{ width: '430px', height: '35px', borderRadius: '5px' }}></input>
-                                            {errors.employeeId && touched.employeeId ? <Alert style={{ height: '50px', width: '425px', marginLeft: '49px', paddingBottom: '30px' }} variant='danger'>
+                                            <input inputmode="numeric" value={values.employeeId} onBlur={handleBlur} name='employeeId' onChange={handleChange} type='number' placeholder='Search Employee By Employee Id' style={{  width: '400px', height: '40px', borderRadius: '10px'}}></input>
+                                           
+                                            <Button style={{ marginLeft: '5px', marginBottom: '10px' }} disabled={false} type='submit'>Search</Button>
+                                            {errors.employeeId && touched.employeeId ? <Alert style={{ marginLeft: '23px', width: '400px'
+                          , height: '30px', paddingBottom: '30px'}} variant='danger'>
                                                 {errors.employeeId}
                                             </Alert> : null}
-                                            <Button style={{ margin: '5px', marginBottom: '10px' }} disabled={false} type='submit'>Search</Button>
                                         </span>
                                     </Form>
                                 </Col>

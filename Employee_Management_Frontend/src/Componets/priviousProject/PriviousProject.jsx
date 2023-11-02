@@ -70,7 +70,7 @@ function PriviousProject() {
     }
     return (
       <div>
-        <Card style={{ textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '50px', backgroundColor: '#1d2e3f', color: 'white' }}>
+        <Card style={{ textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
             <Card.Title>Privious  Project  Details</Card.Title>
@@ -81,10 +81,10 @@ function PriviousProject() {
                   <Col lg={6}>
                     <Form onSubmit={handleSubmit}>
                       <div >
-                        <input style={{ width: '400px', height: '40px', borderRadius: '10px' }} inputmode="numeric" value={values.employeeId} onBlur={handleBlur} name='employeeId' onChange={handleChange} type='number' placeholder='Search Current Project By Employee Id'></input>
+                        <input style={{ width: '400px', height: '40px', borderRadius: '10px' }} inputmode="numeric" value={values.employeeId} onBlur={handleBlur} name='employeeId' onChange={handleChange} type='number' placeholder='Search Privious Project By Employee Id'></input>
                         <Button style={{ margin: '5px', width: '100px' }} disabled={false} type='submit'>Search</Button>
                         {errors.employeeId && touched.employeeId ? <Alert style={{
-                          marginLeft: '20px', width: '400px'
+                          marginLeft: '7px', width: '400px'
                           , height: '30px', paddingBottom: '30px'
                         }} variant='danger'>
                           {errors.employeeId}
@@ -125,8 +125,8 @@ function PriviousProject() {
                               <td>{priviousProject.priviousProjectDescription}</td>
                               <td>{priviousProject.priviousProjectObjective} </td>
                               <td>{priviousProject.employeeId}</td>
-                              <td>{priviousProject.priviousProjectLink ? <div style={{ backgroundColor: '#0066FF', height: '38px', paddingTop: '5px', width: '120px', borderRadius: '6px', color: 'white', fontWeight: 450 }}>{<Link style={{ fontSize: '18px', color: 'inherit', textDecoration: 'none', color: 'white', paddingTop: '30px' }} to={priviousProject.priviousProjectLink}>Click here</Link>}</div> : 'In Dev Phase'}</td>
-                              <td><Button style={{ backgroundColor: 'red', marginLeft: '5px', width: '120px', height: '40px', fontSize: '15px' }} onClick={()=>handleDelete(priviousProject.priviousProjectId)}>Delete</Button></td>
+                              <td>{priviousProject.priviousProjectLink ? <div style={{ backgroundColor: '#0066FF', height: '38px', paddingTop: '5px', width: '100px', borderRadius: '6px', color: 'white', fontWeight: 450 }}>{<Link style={{ fontSize: '18px', color: 'inherit', textDecoration: 'none', color: 'white', paddingTop: '30px' }} to={priviousProject.priviousProjectLink}>Click here</Link>}</div> : 'In Dev Phase'}</td>
+                              <td><Button style={{ backgroundColor: 'red', marginLeft: '5px', width: '100px', height: '40px', fontSize: '15px' }} onClick={()=>handleDelete(priviousProject.priviousProjectId)}>Delete</Button></td>
                               <td><Button style={{ marginLeft: '5px', width: '100px', height: '40px', fontSize: '15px' }} onClick={() => navigate("/priviousProjectDetails/updatePriviousProjectDetails", { state: priviousProject })}>Update</Button></td>
                             </tr>))
                           }
