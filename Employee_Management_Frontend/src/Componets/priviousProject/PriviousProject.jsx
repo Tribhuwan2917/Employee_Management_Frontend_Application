@@ -27,7 +27,7 @@ function PriviousProject() {
           .then((response) => {
             console.log(response.data)
             setAllPriviousProjectOfAEmployee(response.data)
-            action.resetForm()
+           action.resetForm()
           })
           .catch((error) => {
             // console.log(error.response.data)
@@ -70,7 +70,7 @@ function PriviousProject() {
     }
     return (
       <div>
-        <Card style={{ textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
+        <Card style={{ marginTop:'80px', textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
             <Card.Title>Privious  Project  Details</Card.Title>
@@ -93,7 +93,7 @@ function PriviousProject() {
                     </Form>
                   </Col>
                   <Col>
-                    <Button onClick={() => { navigate("/priviousProjectDetails/addPriviousProjectDetails") }}>Add Privios Project</Button>
+                    <Button onClick={() => { navigate("/priviousProjectDetails/addPriviousProjectDetails") }}>Add Privious Project</Button>
                   </Col>
                   <Col>
                     <Button onClick={() => { navigate("/priviousProjectDetails/getAllPriviousProjectDetails") }}>Get All Privious Project</Button>

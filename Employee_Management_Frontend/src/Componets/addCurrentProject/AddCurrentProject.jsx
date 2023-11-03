@@ -54,7 +54,7 @@ function AddCurrentProject() {
         navigate(-1)
     }
     return (
-        <div>
+        <div style={{ marginTop:'80px'}}>
             <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>

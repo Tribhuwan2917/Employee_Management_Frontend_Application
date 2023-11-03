@@ -62,7 +62,7 @@ function EmployeeDetails() {
     }
     return (
         <div>
-            <Card style={{ textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
+            <Card style={{  marginTop:'80px', textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
                 {/* <Card.Img  src={Employee_Image_URL}  variant="top" height='200px' /> */}
                 <Card.Body>
                     <Card.Title>Employee Details</Card.Title>
@@ -101,14 +101,14 @@ function EmployeeDetails() {
                                                     <th>Emp.Id</th>
                                                     <th> First Name</th>
                                                     <th> Last Name</th>
-                                                    <th> Employee Email Id </th>
+                                                    <th> Email Id </th>
                                                     <th>Country</th>
                                                     <th>Addess ZipCode</th>
                                                     <th>City</th>
-                                                    <th>Salary per Month</th>
+                                                    <th>Salary/Month</th>
                                                     <th>Current Project Id</th>
-                                                    <th>Delete Employee</th>
-                                                    <th>Update Employee</th>
+                                                    <th>Delete</th>
+                                                    <th>Update </th>
                                                 </tr>
                                             </thead>
                                             <tbody>

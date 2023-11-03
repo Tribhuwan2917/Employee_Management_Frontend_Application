@@ -17,7 +17,7 @@ function Header() {
    event.preventDefault();
   }
   return (<>
-    <Navbar expand="lg"  className="bg-body">
+    <Navbar expand="lg" style={{position:'fixed'}}  className="bg-body">
       <Container style={{ backgroundColor:'#333333',padding:'0px', margin:'0px'}} fluid>
         <Navbar.Brand href="#" style={{backgroundColor:'#333333'}}>
         <img src={Image_URL} style={{borderRadius:'50%'}} width={50} height={50}></img>

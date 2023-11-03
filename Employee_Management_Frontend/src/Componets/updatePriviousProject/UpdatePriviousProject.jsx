@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Row,Col,Table,Alert,Container,Card,Button} from 'react-bootstrap'
 import { UpdatePriviousProjectSchema } from './UpdatePriviousProjectSchema';
+import { employeeManagement_base_URL, employeeManagement_priviousProject_updatePriviousProject } from '../../../public/ApiUrl';
+import axios from 'axios';
 
 function UpdatePriviousProject() {
     const navigate = useNavigate();
@@ -18,23 +20,26 @@ function UpdatePriviousProject() {
     const { handleChange, handleBlur, handleSubmit, handleReset, values, errors, touched } = useFormik({
         initialValues: locationData.state,
         onSubmit: (values, action) => {
-            axios.put(employeeManagement_base_URL + employeeManagement_currentProject_updateCurrentProject_URL, values)
+            // console.log("it has been called+++++++++++++++++++++++")
+            axios.put(employeeManagement_base_URL + employeeManagement_priviousProject_updatePriviousProject, values)
                 .then((response) => {
-                    if(response.data==="Employee Current Project Successfully updated With Current Project Id"+values.priviousProjectId)
+                    if(response.data==="The Privious project successfully updated with privious project Id"+values.priviousProjectId)
                     {
-                        toast.success("Employee Current Project Successfully! updated With Current Project Id: "+values.priviousProjectId)
+                        toast.success("Employee Privious  Project Updated  Successfully! With Privious  Project Id: "+values.priviousProjectId)
                         setTimeout(()=>{
                             navigate(-1)
                         },3000)
+
                     }
                     else{
-                        toast.warning("Oops! Employee current project  Unable is deu to update server Errror")
+                        console.log(response.da)
+                        toast.warning("Oops! Employee privious project  Unable is deu to update server Errror")
                     }
                 })
                 .catch((error) => {
-                    if(error.response.data.exceptionMessage==="Current Project Not not exists With currentProjectId: "+values.priviousProjectId)
+                    if(error.response.data.priviousProjectExceptionMessage==="No Any Employee Exists Coresponding This Privious Project Id: "+values.priviousProjectId)
                     {
-                        toast.warning("Oops!  No Any Current Project Exists with current project Id :"+values.priviousProjectId)
+                        toast.warning("Oops!  No Any Employee   Exists with privious  project Id :"+values.priviousProjectId)
                     }
                     else{
                     toast.error(Server_Error_Message)
@@ -52,7 +57,7 @@ function UpdatePriviousProject() {
      <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
-                        <Card style={{ width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-270px' }}>
+                        <Card style={{ marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px' }}>
                             <Card.Body>
                                 <Card.Title>Update Privious Project</Card.Title>
                                 <Card.Img src=''></Card.Img>
@@ -61,7 +66,7 @@ function UpdatePriviousProject() {
                                         <Row>
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
-                                                    <label>Current Project Id:</label><br></br>
+                                                    <label>Privious Project Id:</label><br></br>
                                                     <input  style={{width:'400px'}}  onBlur={handleBlur} type='number' value={locationData.state.priviousProjectId} onChange={handleChange} name='priviousProjectId'></input>
                                                     {errors.priviousProjectId && touched.priviousProjectId ? <Alert style={{ marginLeft: '25px', marginTop:'2px',paddingBottom:'30px', height: '40px', width: '400px' }} variant='danger'>
                                                         {errors.priviousProjectId}

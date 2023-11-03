@@ -6,7 +6,7 @@ function Home() {
 
   return (
     <div>
-    {(!sessionStorage.getItem('isLoggedIn')||sessionStorage.getItem('isLoggedIn')==='false')?null:<Alert variant='success'>
+    {(!sessionStorage.getItem('isLoggedIn')||sessionStorage.getItem('isLoggedIn')==='false')?null:<Alert style={{marginTop:'80px'}} variant='success'>
          Your Most Welcome! {sessionStorage.getItem('registrationEmail')} 
         </Alert>}
 

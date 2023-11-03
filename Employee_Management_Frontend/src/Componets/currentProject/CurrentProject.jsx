@@ -67,7 +67,7 @@ function CurrentProject() {
   }
   return (
     <div>
-      <Card style={{ textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
+      <Card style={{marginTop:'80px', textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Card.Title>Current Project  Details</Card.Title>

@@ -29,10 +29,7 @@ function GetAllCurrentProject() {
                 }
                 else{
                     toast.warning(Server_Error_Message)
-                }
-                // console.log(error.response.data)
-                // console.log("Something went wrong")
-               
+                }               
             })
     }, [])
     const handleDelete = (currentProjectId) => {
@@ -51,11 +48,11 @@ function GetAllCurrentProject() {
         }
     }
     return (
-        <div>
-            {allCuurentProjectData.length <= 0 ? <Alert style={{ textAlign: 'center', backgroundColor: '#1e2d3f', color: 'white' }}>No Any Current Project  Exists</Alert> :
+        <div style={{marginTop:'80px'}}>
+            {allCuurentProjectData.length <= 0 ? <Alert style={{  marginTop:'80px', textAlign: 'center', backgroundColor: '#1e2d3f', color: 'white' }}>No Any Current Project  Exists</Alert> :
                 <Container>
                     <Table striped bordered hover>
-                        <thead style={{ textAlign: 'center' }}>
+                        <thead style={{  marginTop:'80px',textAlign: 'center' }}>
                             <tr>
                                 <th>Project Id</th>
                                 <th>Title</th>

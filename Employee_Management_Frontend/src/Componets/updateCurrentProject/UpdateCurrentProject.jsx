@@ -57,7 +57,7 @@ function UpdateCurrentProject() {
             <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
-                        <Card style={{ width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-270px' }}>
+                        <Card style={{ marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-270px' }}>
                             <Card.Body>
                                 <Card.Title>Update Current Project</Card.Title>
                                 <Card.Img src=''></Card.Img>

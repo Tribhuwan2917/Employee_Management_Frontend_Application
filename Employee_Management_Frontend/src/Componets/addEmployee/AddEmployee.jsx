@@ -43,10 +43,10 @@ function AddEmployee() {
     })
     return (
         <div>
-            <Container style={{ marginLeft: '400px', display: 'flex' }}>
+            <Container style={{  marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
-                        <Card style={{ width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-270px' }}>
+                        <Card style={{ zIndex:'-1', position:'inherit', marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px' }}>
                             <Card.Body>
                                 <Card.Title>Add Employee</Card.Title>
                                 <Card.Img src=''></Card.Img>
@@ -132,7 +132,7 @@ function AddEmployee() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Select Country</label>
-                                                    <Form.Select style={{ width: '400px' }} name="employeeCountry" value={values.employeeCountry} onChange={handleChange}  >
+                                                    <Form.Select style={{ marginLeft:'25px', width: '400px' }} name="employeeCountry" value={values.employeeCountry} onChange={handleChange}  >
                                                         {EmployeeCountryName.map((CountryName, index) => (<option key={index} onBlur={handleBlur} value={CountryName}>{CountryName}</option>))}
                                                         {errors.employeeCountry ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                             {errors.employeeCountry}
@@ -145,13 +145,14 @@ function AddEmployee() {
                                             <Col>
                                                 <Row>
                                                     <Col>
-                                                        <div style={{ marginLeft: '-75px' }}> Employee Gender</div>
+                                                        <div style={{ marginLeft: '-280px' }}> Employee Gender</div>
                                                     </Col>
                                                     <Col>
                                                         <div></div>
                                                     </Col>
                                                 </Row>
                                                 <Row>
+                                               
                                                     <Col>
                                                         <div style={{ marginLeft: "50px" }}>
                                                             Male <Form.Check name='employeeGender' onBlur={handleBlur} onChange={handleChange} type="radio" value="Male" />
@@ -172,6 +173,22 @@ function AddEmployee() {
                                                     <Col>
                                                         <div></div>
                                                     </Col>
+                                                    <Col>
+                                                        <div></div>
+                                                    </Col>
+                                                    <Col>
+                                                        <div></div>
+                                                    </Col>
+                                                    <Col>
+                                                        <div></div>
+                                                    </Col>
+                                                    <Col>
+                                                        <div></div>
+                                                    </Col>
+                                                    <Col>
+                                                        <div></div>
+                                                    </Col>
+                                                    
                                                     <Col>
                                                         <div style={{ marginRight: '40px' }}>
                                                             <Button style={{ backgroundColor: 'red', width: '100px' }} onClick={() => { navigate(-1) }} disabled={false}>Cancel</Button>

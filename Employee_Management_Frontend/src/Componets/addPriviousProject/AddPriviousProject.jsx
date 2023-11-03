@@ -35,6 +35,7 @@ function AddPriviousProject() {
             axios.post(employeeManagement_base_URL + employeeManagement_priviousProject_postPriviousProject, values)
                 .then((response) => {
                     toast.success("Your Privious Project add Successfully with Privious Project Id: " + values.priviousProjectId)
+                    action.resetForm()
                 })
                 .catch((error) => {
                     if (error.response.data.priviousProjectExceptionMessage === "This Privious  project Already exists in database with Id: " + values.priviousProjectId) {
@@ -60,9 +61,9 @@ function AddPriviousProject() {
             <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
-                        <Card style={{ width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-270px' }}>
+                        <Card style={{  marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px',zIndex:'-2' }}>
                             <Card.Body>
-                                <Card.Title>Add Privios Project</Card.Title>
+                                <Card.Title>Add Privious Project</Card.Title>
                                 <Card.Img src=''></Card.Img>
                                 <Card.Text>
                                     <form onSubmit={handleSubmit}>

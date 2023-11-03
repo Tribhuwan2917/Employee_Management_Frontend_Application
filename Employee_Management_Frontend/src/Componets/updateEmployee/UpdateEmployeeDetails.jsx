@@ -51,7 +51,7 @@ function UpdateEmployeeDetails() {
             <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
-                        <Card style={{ width: '40rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-100px' }}>
+                        <Card style={{ zIndex:'-1', position:'inherit', marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px' }}>
                             <Card.Body>
                                 <Card.Title>Update Employee</Card.Title>
                                 <Card.Img src=''></Card.Img>
@@ -61,8 +61,8 @@ function UpdateEmployeeDetails() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee Id:</label><br></br>
-                                                    <input onBlur={handleBlur} type='number' value={locationData.state.employeeData.employeeId} onChange={handleChange} name='employeeId'></input>
-                                                    {errors.employeeId && touched.employeeId ? <Alert variant='danger'>
+                                                    <input onBlur={handleBlur} type='number' value={locationData.state.employeeData.employeeId} onChange={handleChange} name='employeeId' style={{  width: '400px', height: '40px', borderRadius: '10px'}}></input>
+                                                    {errors.employeeId && touched.employeeId ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                         {errors.employeeId}
                                                     </Alert> : null}
                                                 </div>
@@ -70,11 +70,11 @@ function UpdateEmployeeDetails() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee Email Id</label><br></br>
-                                                    <input onBlur={handleBlur} type='text' value={values.employeeEmail} onChange={handleChange} name='employeeEmail'></input>
-                                                    <br></br>
-                                                    {errors.employeeEmail && touched.employeeEmail ? <Alert variant='danger'>
+                                                    <input onBlur={handleBlur} type='text' style={{  width: '400px', height: '40px', borderRadius: '10px'}} value={values.employeeEmail} onChange={handleChange} name='employeeEmail'></input>
+                                                    {/* <br></br>
+                                                    {errors.employeeEmail && touched.employeeEmail ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                         {errors.employeeEmail}
-                                                    </Alert> : null}
+                                                    </Alert> : null} */}
                                                 </div>
                                             </Col>
                                         </Row>
@@ -83,9 +83,9 @@ function UpdateEmployeeDetails() {
 
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee First Name</label><br></br>
-                                                    <input type='text' onBlur={handleBlur} value={values.employeeFirstName} onChange={handleChange} name='employeeFirstName'></input>
+                                                    <input type='text' onBlur={handleBlur} style={{  width: '400px', height: '40px', borderRadius: '10px'}} value={values.employeeFirstName} onChange={handleChange} name='employeeFirstName'></input>
                                                     <br></br>
-                                                    {errors.employeeFirstName && touched.employeeFirstName ? <Alert variant='danger'>
+                                                    {errors.employeeFirstName && touched.employeeFirstName ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                         {errors.employeeFirstName}
 
                                                     </Alert> : null}
@@ -94,9 +94,9 @@ function UpdateEmployeeDetails() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee Last Name</label><br></br>
-                                                    <input onBlur={handleBlur} type='text' value={values.employeeLastName} onChange={handleChange} name='employeeLastName'></input>
+                                                    <input onBlur={handleBlur} type='text' style={{  width: '400px', height: '40px', borderRadius: '10px'}} value={values.employeeLastName} onChange={handleChange} name='employeeLastName'></input>
                                                     <br></br>
-                                                    {errors.employeeLastName && touched.employeeLastName ? <Alert variant='danger'>
+                                                    {errors.employeeLastName && touched.employeeLastName ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                         {errors.employeeLastName}
                                                     </Alert> : null}
                                                 </div>
@@ -107,9 +107,9 @@ function UpdateEmployeeDetails() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee Address City</label><br></br>
-                                                    <input type='text' value={values.employeeAddressCity} onChange={handleChange} onBlur={handleBlur} name='employeeAddressCity'></input>
+                                                    <input type='text' value={values.employeeAddressCity} style={{  width: '400px', height: '40px', borderRadius: '10px'}} onChange={handleChange} onBlur={handleBlur} name='employeeAddressCity'></input>
                                                     <br></br>
-                                                    {errors.employeeAddressCity && touched.employeeAddressCity ? <Alert variant='danger'>
+                                                    {errors.employeeAddressCity && touched.employeeAddressCity ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                         {errors.employeeAddressCity}
                                                     </Alert> : null}
                                                 </div>
@@ -117,9 +117,9 @@ function UpdateEmployeeDetails() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Employee Address ZipCode</label><br></br>
-                                                    <input type='text' value={values.employeeAddressZipCode} onChange={handleChange} onBlur={handleBlur} name='employeeAddressZipCode'></input>
+                                                    <input type='text' value={values.employeeAddressZipCode} style={{  width: '400px', height: '40px', borderRadius: '10px'}} onChange={handleChange} onBlur={handleBlur} name='employeeAddressZipCode'></input>
                                                     <br></br>
-                                                    {errors.employeeAddressZipCode && touched.employeeAddressZipCode ? <Alert style={{ height: '30px', width: '240px', marginLeft: '50px', paddingBottom: '30px', marginRight: '20px' }} variant='danger'>
+                                                    {errors.employeeAddressZipCode && touched.employeeAddressZipCode ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                         {errors.employeeAddressZipCode}
                                                     </Alert> : null}
                                                 </div>
@@ -129,9 +129,9 @@ function UpdateEmployeeDetails() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Salary Per month </label><br></br>
-                                                    <input type='number' value={values.employeeSalaryPerMonth} onChange={handleChange} name='employeeSalaryPerMonth' onBlur={handleBlur}></input>
+                                                    <input type='number' value={values.employeeSalaryPerMonth} style={{  width: '400px', height: '40px', borderRadius: '10px'}} onChange={handleChange} name='employeeSalaryPerMonth' onBlur={handleBlur}></input>
                                                     <br></br>
-                                                    {errors.employeeSalaryPerMonth && touched.employeeSalaryPerMonth ? <Alert variant='danger'>
+                                                    {errors.employeeSalaryPerMonth && touched.employeeSalaryPerMonth ? <Alert  style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }}variant='danger'>
                                                         {errors.employeeSalaryPerMonth}
                                                     </Alert> : null}
                                                 </div>
@@ -139,9 +139,9 @@ function UpdateEmployeeDetails() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Select Country</label>
-                                                    <Form.Select name="employeeCountry" value={values.employeeCountry} onChange={handleChange} style={{ width: '200px', marginLeft: '45px' }} >
+                                                    <Form.Select name="employeeCountry" value={values.employeeCountry} onChange={handleChange} style={{ marginLeft:'30px',  width: '400px', height: '40px', borderRadius: '10px'}} >
                                                         {EmployeeCountryName.map((CountryName, index) => (<option key={index} onBlur={handleBlur} value={CountryName}>{CountryName}</option>))}
-                                                        {errors.employeeCountry ? <Alert variant='danger'>
+                                                        {errors.employeeCountry ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                             {errors.employeeCountry}
                                                         </Alert> : null}
                                                     </Form.Select>
@@ -194,7 +194,7 @@ function UpdateEmployeeDetails() {
 
                                                 </Row>
 
-                                                {errors.employeeGender && touched.employeeGender ? <span><Alert variant='danger'>
+                                                {errors.employeeGender && touched.employeeGender ? <span><Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                     {errors.employeeGender}
                                                 </Alert></span> : null}
 

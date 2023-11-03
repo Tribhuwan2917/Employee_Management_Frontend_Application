@@ -6,6 +6,7 @@ import { Table, Button,Row,Col } from 'react-bootstrap';
 import { Alert } from 'bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Employee_Image_URL } from '../../../public/UtilData';
 
 function GetAllPrivousProject() {
   const navigate = useNavigate()
@@ -66,8 +67,8 @@ function GetAllPrivousProject() {
     navigate(-1);
   }
   return (
-    <div>
-      {wellFormedData.length <= 0 ? <Alert varient='danger'>No Any Privious Are Exists</Alert> :
+    <div style={{ marginTop:'80px'}}>
+      {wellFormedData.length <= 0 ? <Alert  varient='danger'>No Any Privious Are Exists</Alert> :
         wellFormedData.map(
           (employeePriviousProject, index) => (<div key={index}>
             <Table striped bordered hover>
