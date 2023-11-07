@@ -49,7 +49,7 @@ function SignUp() {
     <Container style={{ marginLeft:'400px', display:'flex'}}>
     <Row >
     <Col>
-      <Card style={{ width: '28rem',textAlign:'center',backgroundColor:'#1d2e3f', color:'white',height:'400px'}}>
+      <Card style={{zIndex:'-1', position:'inherit', marginTop:'80px', width: '28rem',textAlign:'center',backgroundColor:'#1d2e3f', color:'white',height:'400px'}}>
       <Card.Body>
         <Card.Title>Employee Registration</Card.Title>
         <Card.Img src=''></Card.Img>

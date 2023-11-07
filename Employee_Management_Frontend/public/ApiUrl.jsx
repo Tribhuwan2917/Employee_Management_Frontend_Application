@@ -29,3 +29,27 @@ export const employeeManagement_priviousProject_deletePriviousProject="deletePri
 export const employeeManagement_priviousProject_updatePriviousProject="updatePriviousProject"
 
 
+
+export const Instagram_logo_URL='public/imageges/instagram_logo.avif'
+export const Linkdin_logo_URL='public/imageges/linkdin.png'
+export const Github_logo_URL='public/imageges/github-logo.png'
+export const Leetcode_logo_URL='public/imageges/leetcode.png'
+export const Twitter_logo_URL='public/imageges/twitter-x-logo.png'
+ 
+
+export const Instagram_Account_URL=''
+export const Linkdin_Account_URL='https://www.linkedin.com/in/tribhuwan-pal-00553b215/'
+export const Github_Account_URL='https://github.com/Tribhuwan2917'
+export const Leetcode_Account_URL='https://leetcode.com/Tribhuwan_1729/'
+export const Twitter_Account_URL=''
+ 
+export const Hr_Management_URL='/hrManagement'
+export const Manager_Management_URL='/managerManagent'
+export const Team_Lead_Management_URL='/teamLeadManagement'
+export const Senior_Manager_Management_URL='/seniorManagerManagement'
+export const Project_Management_URL='/projectManagement'
+
+
+
+
+

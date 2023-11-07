@@ -20,8 +20,19 @@ import GetAllCurrentProject from './Componets/getAllCurrentProject/GetAllCurrent
 import AddPriviousProject from './Componets/addPriviousProject/AddPriviousProject'
 import UpdatePriviousProject from './Componets/updatePriviousProject/UpdatePriviousProject'
 import GetAllPrivousProject from './Componets/getAllPriviousProject/GetAllPrivousProject'
+import Footer from './Componets/footerComponents/Footer'
 
 function App() {
+  // /**.index_main{
+  //       /* background-image: url("");  */
+  //       background-repeat: no-repeat;
+  //       background-size: contain;
+  //       backface-visibility: visible;
+  //       width: 100%;
+  //       z-index: -1;
+  //       height: 4000vh;
+  //       background-color: #34568B;
+  //      } */
 
   return (
     <>
@@ -29,7 +40,15 @@ function App() {
         <Row>
         <Header></Header>
         </Row>
-        <Row>
+        <Row style={{
+          backgroundColor:'#34568B',
+          backgroundSize:'contain',
+          width:'100%',
+          zIndex:'-1',
+          height:'50rem'
+
+           
+        }}>
         <BrowserRouter>
       <Routes>
         <Route path='/home' element={<Home></Home>}>
@@ -39,17 +58,11 @@ function App() {
         <Route path='/Signup' element={<SignUp></SignUp>}>
         </Route>
         <Route path='/logout' element={<Logout></Logout>}></Route>
-
-
-        
         <Route exact path='/employeeDetails' element={<EmployeeDetails></EmployeeDetails>}></Route>
         <Route path='/employeeDetails/addEmployee' element={<AddEmployee></AddEmployee>}></Route>
         <Route path='/employeeDetails/getAllEmployee' element={<GetAllEmployee></GetAllEmployee>}></Route>
         <Route path='/employeeDetails/getAllEmployee/updateEmployeeDetails' element={<UpdateEmployeeDetails></UpdateEmployeeDetails>}></Route>
         <Route path='/employeeDetails/updateEmployeeDetails' element={<UpdateEmployeeDetails></UpdateEmployeeDetails>}></Route>
-
-
-
         <Route path='/currentProjectDetails' element={<CurrentProject></CurrentProject>}></Route>
         <Route path='/currentProjectDetails/getAllCurrentProjectDetails' element={<GetAllCurrentProject></GetAllCurrentProject>}></Route>
         <Route path='/currentProjectDetails/getAllCurrentProjectDetails/updateCurrentProjectDetails' element={<UpdateCurrentProject></UpdateCurrentProject>}></Route>
@@ -63,8 +76,14 @@ function App() {
       </Routes>
     </BrowserRouter>
         </Row>
-        <Row>
-          <Col>Foortoor</Col>
+        <Row style={{
+          width:'100%',
+          height:'500px',
+          backgroundColor:'	rgb(5, 5, 10)',
+          backgroundSize:'contain',
+         color:'white'
+        }}>
+          <Col><Footer></Footer></Col>
         </Row>
       </Container>
       {/* <Routes>
