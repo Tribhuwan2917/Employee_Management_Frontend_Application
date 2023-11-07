@@ -15,9 +15,8 @@ axios.delete(employeeManagement_base_URL+employeeManagement_registration_deleteR
   sessionStorage.clear();
   toast.success("Employee logged out successfully")
   setTimeout(()=>{
-    // console.log("It has been executed successully")
-  //  location.reload()
     navigate('/home');
+    location.reload();
   },4000)
 
 

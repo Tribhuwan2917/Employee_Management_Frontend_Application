@@ -48,7 +48,7 @@ function GetAllEmployee() {
     }
 
     return (
-        <div>
+        <div style={{marginTop:'80px'}}>
             {allEmployeeData.length <= 0 ?<Alert style={{textAlign:'center',backgroundColor:'#1d2e3f', color:'white'}}>No Employee Exists</Alert> :
                 <Table striped bordered hover>
                     <thead style={{textAlign:'center'}}>

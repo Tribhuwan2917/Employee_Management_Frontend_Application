@@ -29,6 +29,7 @@ function Login() {
             sessionStorage.setItem("registraionPassword", values.registraionPassword);
             setTimeout(() => {
               navigate('/home')
+              location.reload()
             }, 4000)
           }
           else {

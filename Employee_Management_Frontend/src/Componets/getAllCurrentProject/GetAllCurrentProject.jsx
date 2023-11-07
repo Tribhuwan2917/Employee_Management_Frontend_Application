@@ -50,9 +50,9 @@ function GetAllCurrentProject() {
     return (
         <div style={{marginTop:'80px'}}>
             {allCuurentProjectData.length <= 0 ? <Alert style={{  marginTop:'80px', textAlign: 'center', backgroundColor: '#1e2d3f', color: 'white' }}>No Any Current Project  Exists</Alert> :
-                <Container>
+                <Container >
                     <Table striped bordered hover>
-                        <thead style={{  marginTop:'80px',textAlign: 'center' }}>
+                        <thead style={{textAlign: 'center' }}>
                             <tr>
                                 <th>Project Id</th>
                                 <th>Title</th>

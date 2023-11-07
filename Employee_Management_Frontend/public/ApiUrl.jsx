@@ -49,6 +49,14 @@ export const Team_Lead_Management_URL='/teamLeadManagement'
 export const Senior_Manager_Management_URL='/seniorManagerManagement'
 export const Project_Management_URL='/projectManagement'
 
+export const Slider_Image1_URL='public/imageges/sliderImage1.avif'
+export const Slider_Image2_URL='public/imageges/sliderImage2.avif'
+
+export const Slider_Image3_URL='public/imageges/sliderImage3.avif'
+
+export const Slider_Image4_URL='public/imageges/sliderImage4.avif'
+
+
 
 
 
