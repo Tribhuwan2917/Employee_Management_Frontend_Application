@@ -20,6 +20,10 @@ function SignUp() {
       registrationEmail:'',
       registraionPassword:''
     }
+    const emailSender=()=>
+    {
+      
+    }
     const{handleChange,handleSubmit,values,errors,touched,handleBlur}=useFormik({
         initialValues:formIntialValue,
         onSubmit:(values,action)=>{
@@ -44,12 +48,13 @@ function SignUp() {
         },
         validationSchema:FormSchema
     })
+    //<div class="hero__bg js-loaded is-loaded" style="background-image:url(https://www.altantechnologies.com/drive/uploads/2019/02/iot-internet-of-things-cloud-1600x650c-1600x650.jpg )"></div>
   return (
     <div>
-    <Container style={{ marginLeft:'400px', display:'flex'}}>
+    <Container style={{ marginLeft:'400px', display:'flex',marginBottom:'5px'}}>
     <Row >
     <Col>
-      <Card style={{zIndex:'-1', position:'inherit', marginTop:'80px', width: '28rem',textAlign:'center',backgroundColor:'#1d2e3f', color:'white',height:'400px'}}>
+      <Card style={{zIndex:'-1', position:'inherit', marginTop:'120px', width: '38rem',textAlign:'center',backgroundColor:'#1d2e3f', color:'white',height:'400px'}}>
       <Card.Body>
         <Card.Title>Employee Registration</Card.Title>
         <Card.Img src=''></Card.Img>
@@ -57,21 +62,24 @@ function SignUp() {
         <form onSubmit={handleSubmit}>
         <div>
         <label>Employee Email Id</label><br></br>
-        <input type='text' style={{width:'300px'}} value={values.registrationEmail} onBlur={handleBlur} onChange={handleChange} name='registrationEmail'></input><br></br>
-        {errors.registrationEmail&&touched.registrationEmail?<Alert style={{ marginTop:'2px', marginLeft:'57px',width:'300px',height:'35px',paddingBottom:'35px'}} variant='danger'>
+        <div>
+        <input type='text' style={{width:'300px'}} value={values.registrationEmail} onBlur={handleBlur} onChange={handleChange} name='registrationEmail'></input>
+        <Button style={{ width:'100px', margin:'5px'}}>Verify</Button>
+        </div> 
+        {errors.registrationEmail&&touched.registrationEmail?<Alert style={{ marginTop:'2px', marginLeft:'75px',width:'420px',height:'35px',paddingBottom:'35px'}} variant='danger'>
         {errors.registrationEmail}
         </Alert>:null}
         </div>
         <div>
         <label> Employee Password</label><br></br>
-        <input onBlur={handleBlur} style={{width:'300px'}} type='text' value={values.registraionPassword} onChange={handleChange} name='registraionPassword'></input>
+        <input onBlur={handleBlur} style={{width:'420px'}} type='text' value={values.registraionPassword} onChange={handleChange} name='registraionPassword'></input>
         <br></br>
-        {errors.registraionPassword&&touched.registraionPassword?<Alert style={{marginTop:'2px', marginLeft:'57px',width:'300px',height:'35px',paddingBottom:'35px'}} variant='danger'>
+        {errors.registraionPassword&&touched.registraionPassword?<Alert style={{marginTop:'2px', marginLeft:'75px',width:'420px',height:'35px',paddingBottom:'35px'}} variant='danger'>
         {errors.registraionPassword}
         </Alert>:null}
         </div>
         <div>
-        <Button style={{ marginTop:'5px',width:'100px', marginLeft:'15px'}} type='submit' disabled={false}>SignUp</Button>
+        <Button style={{ marginTop:'30px',width:'100px', marginLeft:'15px'}} type='submit' disabled={false}>SignUp</Button>
         </div>
         </form> 
         </Card.Text>

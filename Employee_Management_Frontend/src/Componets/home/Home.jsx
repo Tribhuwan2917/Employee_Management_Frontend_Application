@@ -7,7 +7,7 @@ import './home.css'
 import { Github_logo_URL, Leetcode_logo_URL, Slider_Image1_URL, Slider_Image2_URL, Slider_Image3_URL, Slider_Image4_URL } from '../../../public/ApiUrl';
 function Home() {
   return (
-    <div className='home'>
+    <div style={{height:'640px'}} className='home'>
     {(!sessionStorage.getItem('isLoggedIn')||sessionStorage.getItem('isLoggedIn')==='false')? <Carousel style={{paddingTop:'200px'}} data-bs-theme="dark">
       <Carousel.Item style={{textAlign:'center'}}>
         <img

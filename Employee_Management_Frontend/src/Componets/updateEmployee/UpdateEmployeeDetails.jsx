@@ -47,14 +47,14 @@ function UpdateEmployeeDetails() {
         validationSchema: UpdateEmployeeDetailsSchema
     })
     return (
-        <div>
+        <div style={{margin:'5px'}}>
             <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
                         <Card style={{ zIndex:'-1', position:'inherit', marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px' }}>
                             <Card.Body>
                                 <Card.Title>Update Employee</Card.Title>
-                                <Card.Img src=''></Card.Img>
+                                {/* <Card.Img src=''></Card.Img> */}
                                 <Card.Text>
                                     <form onSubmit={handleSubmit}>
                                         <Row>

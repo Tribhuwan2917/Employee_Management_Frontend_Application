@@ -42,7 +42,7 @@ function AddEmployee() {
         validationSchema: AddEmployeeDetailsSchema
     })
     return (
-        <div>
+        <div style={{margin:'5px'}}>
             <Container style={{  marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>

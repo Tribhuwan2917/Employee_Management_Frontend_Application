@@ -57,14 +57,14 @@ function AddPriviousProject() {
 
     // }
     return (
-        <div>
+        <div style={{margin:'5px'}}>
             <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
-                        <Card style={{  marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px',zIndex:'-2' }}>
+                        <Card style={{  marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px' }}>
                             <Card.Body>
                                 <Card.Title>Add Privious Project</Card.Title>
-                                <Card.Img src=''></Card.Img>
+                                {/* <Card.Img src=''></Card.Img> */}
                                 <Card.Text>
                                     <form onSubmit={handleSubmit}>
                                         <Row>

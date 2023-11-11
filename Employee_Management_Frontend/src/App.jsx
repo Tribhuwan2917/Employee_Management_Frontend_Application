@@ -21,6 +21,8 @@ import AddPriviousProject from './Componets/addPriviousProject/AddPriviousProjec
 import UpdatePriviousProject from './Componets/updatePriviousProject/UpdatePriviousProject'
 import GetAllPrivousProject from './Componets/getAllPriviousProject/GetAllPrivousProject'
 import Footer from './Componets/footerComponents/Footer'
+import ForgotPassword from './Componets/forgotPassword/ForgotPassword'
+import ChangePassword from './Componets/changePassword/ChangePassword'
 
 function App() {
   // /**.index_main{
@@ -45,7 +47,7 @@ function App() {
           backgroundSize:'contain',
           width:'100%',
           zIndex:'-1',
-          height:'50rem'
+          // height:'100%'
 
            
         }}>
@@ -73,6 +75,8 @@ function App() {
         <Route path='/priviousProjectDetails/addPriviousProjectDetails' element={<AddPriviousProject></AddPriviousProject>}></Route>
         <Route path='/priviousProjectDetails/updatePriviousProjectDetails' element={<UpdatePriviousProject></UpdatePriviousProject>}></Route>
         <Route path='/priviousProjectDetails/getAllPriviousProjectDetails' element={<GetAllPrivousProject></GetAllPrivousProject>}></Route>
+        <Route path='/changePassword' element={<ChangePassword></ChangePassword>}></Route>
+        <Route path='/forgotPassword' element={<ForgotPassword></ForgotPassword>}></Route>
       </Routes>
     </BrowserRouter>
         </Row>
@@ -81,7 +85,8 @@ function App() {
           height:'500px',
           backgroundColor:'	rgb(5, 5, 10)',
           backgroundSize:'contain',
-         color:'white'
+         color:'white',
+         marginTop:'1px'
         }}>
           <Col><Footer></Footer></Col>
         </Row>

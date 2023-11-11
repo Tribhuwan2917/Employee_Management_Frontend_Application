@@ -66,9 +66,9 @@ function CurrentProject() {
     // console.log("data has been cancel successfully")
   }
   return (
-    <div>
-      <Card style={{marginTop:'80px', textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+    <div style={{margin:'5px'}}>
+      <Card style={{ marginTop:'75px' ,textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
+        {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
         <Card.Body>
           <Card.Title>Current Project  Details</Card.Title>
           {/* <Card.Img  variant="top" width={'50rem'} height={400} ></Card.Img> */}

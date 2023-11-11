@@ -5,6 +5,9 @@ export const employeeManagement_registration_getRegistration_URL="getRegistratio
 export const employeeManagement_registration_postRegistration_URL="addRegistration"
 export const employeeManagement_registration_deleteRegistration_URL="deleteRegistration/"
 export const employeeManagement_registration_updateRegistration_URL="updateRegistration"
+// employeeManagement.registration.updateRegistration.URL=/updateRegistration
+export const employeeManagement_registration_forgotPasswordEmail_URL="forgotPasswordPostEmail"
+
 
 export const employeeManagement_employeeDetails_getAllEmployeeDetails_URL="getAllEmployeeDetails"
 export const employeeManagement_employeeDetails_getEmployeeDetails_URL="getEmployeeDetails/"

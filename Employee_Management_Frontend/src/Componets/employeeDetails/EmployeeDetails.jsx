@@ -61,7 +61,7 @@ function EmployeeDetails() {
         setEmployeeData({})
     }
     return (
-        <div>
+        <div style={{margin:'5px'}}>
             <Card style={{  marginTop:'80px', textAlign: 'center', width: '70rem', height: '30rem', marginLeft: '150px', backgroundColor: '#1d2e3f', color: 'white' }}>
                 {/* <Card.Img  src={Employee_Image_URL}  variant="top" height='200px' /> */}
                 <Card.Body>
