@@ -66,16 +66,16 @@ function Login() {
                   <form onSubmit={handleSubmit}>
                     <div style={{ padding: '2px' }}>
                       <label>Employee Email Id</label><br></br>
-                      <input style={{width:'400px'}} type='text' value={values.registrationEmail} onBlur={handleBlur} onChange={handleChange} name='registrationEmail'></input><br></br>
-                      {errors.registrationEmail && touched.registrationEmail ? <Alert style={{ marginTop:'2px', marginLeft:'85px',width:'400px',height:'35px',paddingBottom:'35px'}} variant='danger'>
+                      <input placeholder='Enter The Email Id' style={{ width:  '420px',height:'40px', borderRadius:'8px' }} type='text' value={values.registrationEmail} onBlur={handleBlur} onChange={handleChange} name='registrationEmail'></input><br></br>
+                      {errors.registrationEmail && touched.registrationEmail ? <Alert style={{ borderRadius:'10px',marginTop: '2px', marginLeft: '75px', width: '420px', height: '35px', paddingBottom: '35px' }} variant='danger'>
                         {errors.registrationEmail}
                       </Alert> : null}
                     </div>
                     <div style={{ padding: '2px' }}>
                       <label> Employee Password</label><br></br>
-                      <input style={{width:'400px'}} type='text' value={values.registraionPassword} onBlur={handleBlur} onChange={handleChange} name='registraionPassword'></input>
+                      <input placeholder='Enter the Password'  style={{ width:  '420px',height:'40px', borderRadius:'8px' }} type='text' value={values.registraionPassword} onBlur={handleBlur} onChange={handleChange} name='registraionPassword'></input>
                       <br></br>
-                      {errors.registraionPassword && touched.registraionPassword ? <Alert style={{ marginTop:'2px', marginLeft:'85px',width:'400px',height:'35px',paddingBottom:'35px'}} variant='danger'>
+                      {errors.registraionPassword && touched.registraionPassword ? <Alert style={{ borderRadius:'10px',marginTop: '2px', marginLeft: '75px', width: '420px', height: '35px', paddingBottom: '35px' }} variant='danger'>
                         {errors.registraionPassword}
                       </Alert> : null}
                     </div>
