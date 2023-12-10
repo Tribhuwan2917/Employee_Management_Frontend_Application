@@ -20,8 +20,10 @@ function EmployeeDetails() {
     const { handleChange, handleBlur, handleSubmit, touched, errors, values } = useFormik({
         initialValues: inputSearchIntialValue,
         onSubmit: (values, action) => {
+            console.log(values)
             axios.get(employeeManagement_base_URL + employeeManagement_employeeDetails_getEmployeeDetails_URL + values.employeeId).then((response) => {
                 setEmployeeData(response.data)
+                console.log(response.data)
                 action.resetForm()
             }).catch((error) => {
                 console.log("Is has got called")
@@ -41,7 +43,8 @@ function EmployeeDetails() {
         employeeAddressZipCode: '',
         employeeAddressCity: '',
         employeeSalaryPerMonth: '',
-        employeeGender: ''
+        employeeGender: '',
+        employeeImage:''
     })
     const handleDelete = (event) => {
         event.preventDefault();
@@ -98,6 +101,7 @@ function EmployeeDetails() {
                                         <Table striped bordered hover>
                                             <thead>
                                                 <tr>
+                                                <th>Employee Image</th>
                                                     <th>Emp.Id</th>
                                                     <th> First Name</th>
                                                     <th> Last Name</th>
@@ -113,6 +117,7 @@ function EmployeeDetails() {
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                    <td><img src={employeeData.employeeImage} alt='Image Downloading...'></img></td>
                                                     <td>{employeeData.employeeId}</td>
                                                     <td> {employeeData.employeeFirstName}</td>
                                                     <td>{employeeData.employeeLastName}</td>

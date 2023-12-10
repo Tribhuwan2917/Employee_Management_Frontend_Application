@@ -1,8 +1,8 @@
 import { useFormik } from 'formik';
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AddEmployeeDetailsSchema } from './AddEmployeeDetailsSchema';
-import { Container, Form, Row, Col, Card, Button, Alert } from 'react-bootstrap'
+import { Container, Form, Row, Col, Card, Button, Alert, InputGroup } from 'react-bootstrap'
 import { EmployeeCountryName, Employee_Image_URL, Server_Error_Message } from '../../../public/UtilData';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +11,7 @@ import { employeeManagement_base_URL, employeeManagement_employeeDetails_postEmp
 
 function AddEmployee() {
     const navigate = useNavigate();
+    const[imageData,setImageData]=useState();
     const employeeIntialValue = {
         employeeId: '',
         employeeFirstName: '',
@@ -20,7 +21,8 @@ function AddEmployee() {
         employeeAddressZipCode: '',
         employeeAddressCity: '',
         employeeSalaryPerMonth: '',
-        employeeGender: ''
+        employeeGender: '',
+        employeeImage:''
     }
     const { handleChange, handleBlur, handleSubmit, handleReset, values, errors, touched } = useFormik({
         initialValues: employeeIntialValue,
@@ -41,12 +43,20 @@ function AddEmployee() {
         },
         validationSchema: AddEmployeeDetailsSchema
     })
+    const handleImageChange=(event)=>{
+        setImageData(event.target.files)
+    }
+    const handleImageSubmit=(event)=>{
+        event.preventDefault()
+        console.log("Your Image succesfully uploadede");
+        console.log(imageData)
+    }
     return (
-        <div style={{margin:'5px'}}>
-            <Container style={{  marginLeft: '400px', display: 'flex' }}>
+        <div style={{ margin: '5px' }}>
+            <Container style={{ marginLeft: '400px', display: 'flex' }}>
                 <Row >
                     <Col>
-                        <Card style={{ zIndex:'-1', position:'inherit', marginTop:'80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px' }}>
+                        <Card style={{ zIndex: '-1', position: 'inherit', marginTop: '80px', width: '60rem', textAlign: 'center', backgroundColor: '#1d2e3f', color: 'white', height: '700px', marginLeft: '-200px' }}>
                             <Card.Body>
                                 <Card.Title>Add Employee</Card.Title>
                                 <Card.Img src=''></Card.Img>
@@ -81,9 +91,9 @@ function AddEmployee() {
                                                     <br></br>
                                                     {errors.employeeFirstName && touched.employeeFirstName ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                         {errors.employeeFirstName}
-                                                        </Alert> : null
-                                                        }
-                                                    </div>
+                                                    </Alert> : null
+                                                    }
+                                                </div>
                                             </Col>
                                             <Col>
                                                 <div>
@@ -132,7 +142,7 @@ function AddEmployee() {
                                             <Col>
                                                 <div style={{ padding: '2px' }}>
                                                     <label>Select Country</label>
-                                                    <Form.Select style={{ marginLeft:'25px', width: '400px' }} name="employeeCountry" value={values.employeeCountry} onChange={handleChange}  >
+                                                    <Form.Select style={{ marginLeft: '25px', width: '400px' }} name="employeeCountry" value={values.employeeCountry} onChange={handleChange}  >
                                                         {EmployeeCountryName.map((CountryName, index) => (<option key={index} onBlur={handleBlur} value={CountryName}>{CountryName}</option>))}
                                                         {errors.employeeCountry ? <Alert style={{ marginLeft: '25px', marginTop: '2px', paddingBottom: '30px', height: '40px', width: '400px' }} variant='danger'>
                                                             {errors.employeeCountry}
@@ -152,7 +162,7 @@ function AddEmployee() {
                                                     </Col>
                                                 </Row>
                                                 <Row>
-                                               
+
                                                     <Col>
                                                         <div style={{ marginLeft: "50px" }}>
                                                             Male <Form.Check name='employeeGender' onBlur={handleBlur} onChange={handleChange} type="radio" value="Male" />
@@ -169,33 +179,17 @@ function AddEmployee() {
                                                             Other
                                                             <Form.Check onBlur={handleBlur} name='employeeGender' onChange={handleChange} type="radio" value="Other" />
                                                         </div>
+                                                       
+                                                    </Col>
+                                                    <Col>  
                                                     </Col>
                                                     <Col>
-                                                        <div></div>
-                                                    </Col>
-                                                    <Col>
-                                                        <div></div>
-                                                    </Col>
-                                                    <Col>
-                                                        <div></div>
-                                                    </Col>
-                                                    <Col>
-                                                        <div></div>
-                                                    </Col>
-                                                    <Col>
-                                                        <div></div>
-                                                    </Col>
-                                                    <Col>
-                                                        <div></div>
-                                                    </Col>
-                                                    
-                                                    <Col>
-                                                        <div style={{ marginRight: '40px' }}>
+                                                        <div style={{ marginRight: '20px' }}>
                                                             <Button style={{ backgroundColor: 'red', width: '100px' }} onClick={() => { navigate(-1) }} disabled={false}>Cancel</Button>
                                                         </div>
                                                     </Col>
                                                     <Col>
-                                                        <div style={{ marginRight: '40px' }}>
+                                                        <div style={{ marginRight: '20px' }}>
                                                             <Button style={{ width: '100px', margin: '2px' }} type='submit' >Add</Button>
                                                         </div>
                                                     </Col>
@@ -206,6 +200,14 @@ function AddEmployee() {
                                             </Col>
                                         </Row>
                                     </form>
+                                       
+                                    <form onSubmit={handleImageSubmit}>
+                                                    <h6 style={{marginLeft:'-180px'}}>
+                                                            Employee Image
+                                                        </h6>
+                                                    <input   onChange={handleImageChange} type='file'></input>
+                                                    <Button type='submit'>Upload</Button>
+                                                    </form>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
